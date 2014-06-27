@@ -1,0 +1,17 @@
+<link href="css/login.css" rel="stylesheet">
+
+<div id="loginBg" />
+
+<div class="container">
+  <div>
+  	<form class="form-signin" ng-submit="login()">       
+      <h1 class="form-signin-heading">MARIA LOCA</h1>
+      <input type="text" class="form-control" id="inputEmail" placeholder="Email Address" ng-model="loginData.email" required="" autofocus="" />
+      <input type="password" class="form-control" id="inputPassword" placeholder="Password" ng-model="loginData.password"required=""/>     
+      
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>   
+    </form>
+  	<p class="text-center sign-up" ng-show="flash" ng-bind="flash"></p>
+  </div>
+  <h2 class="login-slogan">Texto com slogan da cerveja...</h2>
+</div>

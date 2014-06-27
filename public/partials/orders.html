@@ -1,0 +1,125 @@
+<style>
+body {  
+    background: ##3a2006;
+    background-image: url("/images/bg_body1.jpg"), url("/images/bg_body2.jpg");
+    background-repeat: repeat-x, repeat;
+}
+</style>
+
+<div class="container">
+<div class="row" ng-controller="loginController">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+<button type="submit" class="btn" ng-click="logout()">Sair</button>
+    </div>      
+</div>
+
+<h1 class="titulo-pagina">Pedidos</h1>
+<h4>
+<select ng-model="search.status">
+    <option value="0" default>Aguardando</option>
+    <option value="1">Entregues</option>
+</select>
+</h4>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6">
+  
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6">
+        <h3 class="titulo-tabela">Original</h3>
+    </div>      
+</div>
+
+          <div class="panel panel-default">
+            <table class="table table-hover table-condensed">
+    <thead>
+    <tr>
+        <th>Data Pedido</th>
+        <th>Cliente</th>
+        <th>Vendedor</th>
+        <th class="text-right">Quantidade</th>
+        <th class="text-right">Valor Total</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="orderOriginal in ordersOriginal | filter:search">
+        <td>
+            {{ orderOriginal.dataPedido  | date:"dd/MM/yyyy" }}
+        </td>
+        <td>
+            {{ orderOriginal.client.nome }}
+        </td>
+        <td>
+            {{ orderOriginal.user.nome }}
+        </td>
+        <td class="text-right">
+            {{orderOriginal.quantidade | number:0 }}
+        </td>
+        <td class="text-right">
+            {{orderOriginal.valor_pedido | currency:"R$ " }}
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3"><strong>TOTAIS</strong></td>
+        <td class="text-right"><strong>{{ getQtdTotalOriginal() }}</strong></td>
+        <td class="text-right"><strong>{{ getValorTotalOriginal() | currency:"R$ " }}</strong></td>
+    </tr>
+    </tbody>
+</table>
+          </div>
+    </div>      
+
+    <div class="col-xs-12 col-sm-12 col-md-6">
+      
+
+<div class="row"> 
+    <div class="col-xs-12 col-sm-12 col-md-6">
+        <h3 class="titulo-tabela">Trigo</h3>
+    </div>      
+</div>      <div class="panel panel-default">
+            <table class="table table-hover table-condensed">
+                <thead>
+    <tr>
+        <th>Data Pedido</th>
+        <th>Cliente</th>
+        <th>Vendedor</th>
+        <th class="text-right">Quantidade</th>
+        <th class="text-right">Valor Total</th>
+    </tr>
+                </thead>
+                <tbody>
+    <tr ng-repeat="orderTrigo in ordersTrigo | filter:search">
+        <td>
+            {{orderTrigo.dataPedido | date:"dd/MM/yyyy" }}
+        </td>
+        <td>
+            {{orderTrigo.client.nome}}
+        </td>
+        <td>
+            {{orderTrigo.user.nome }}
+        </td>
+        <td class="text-right">
+            {{orderTrigo.quantidade | number:0 }}
+        </td>
+        <td class="text-right">
+            {{orderTrigo.valor_pedido | currency:"R$ " }}
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3"><strong>TOTAIS</strong></td>
+        <td class="text-right"><strong>{{ getQtdTotalTrigo() }}</strong></td>
+        <td class="text-right"><strong>{{ getValorTotalTrigo() | currency:"R$ " }}</strong></td>
+    </tr>
+                </tbody>
+            </table>
+          </div>
+    </div>      
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6">
+    <h4 class="totais-pagina">TOTAL GERAL {{ getValorTotalOriginal() + getValorTotalTrigo() | currency:"R$ " }} </h4>
+    </div>      
+</div>
+</div>
