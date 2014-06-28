@@ -42,7 +42,7 @@ angular.module('myApp')
                 var total = 0.0;
                 angular.forEach($scope.ordersOriginal, function(order) {
                   if ($scope.search.status == order.status) {
-                    total = parseInt(parseInt(total) + parseInt(order.valor_pedido));
+                    total = parseInt(parseInt(total) + parseInt(order.valor_unitario * order.quantidade));
                   }
                 })
                 return total;
@@ -60,7 +60,7 @@ angular.module('myApp')
                 var total = 0.0;
                 angular.forEach($scope.ordersTrigo, function(order) {
                   if ($scope.search.status == order.status) {
-                    total = parseInt(parseInt(total) + parseInt(order.valor_pedido));
+                    total = parseInt(parseInt(total) + parseInt(order.valor_unitario * order.quantidade));
                   }
                 })
                 return total;

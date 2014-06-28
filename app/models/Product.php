@@ -10,8 +10,4 @@ class Product extends Eloquent {
 
 	public $timestamps = false;
 
-	public function orders()
-	{
-		return $this->hasMany('Order');
-	}
 }

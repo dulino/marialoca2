@@ -45,19 +45,19 @@ body {
     <tbody>
     <tr ng-repeat="orderOriginal in ordersOriginal | filter:search">
         <td>
-            {{ orderOriginal.dataPedido  | date:"dd/MM/yyyy" }}
+            {{ orderOriginal.order.dataPedido  | date:"dd/MM/yyyy" }}
         </td>
         <td>
-            {{ orderOriginal.client.nome }}
+            {{ orderOriginal.order.client.nome }}
         </td>
         <td>
-            {{ orderOriginal.user.nome }}
+            {{ orderOriginal.order.user.nome }}
         </td>
         <td class="text-right">
             {{orderOriginal.quantidade | number:0 }}
         </td>
         <td class="text-right">
-            {{orderOriginal.valor_pedido | currency:"R$ " }}
+            {{ (orderOriginal.valor_unitario * orderOriginal.quantidade) | currency:"R$ " }}
         </td>
     </tr>
     <tr>
@@ -91,19 +91,19 @@ body {
                 <tbody>
     <tr ng-repeat="orderTrigo in ordersTrigo | filter:search">
         <td>
-            {{orderTrigo.dataPedido | date:"dd/MM/yyyy" }}
+            {{orderTrigo.order.dataPedido | date:"dd/MM/yyyy" }}
         </td>
         <td>
-            {{orderTrigo.client.nome}}
+            {{orderTrigo.order.client.nome}}
         </td>
         <td>
-            {{orderTrigo.user.nome }}
+            {{orderTrigo.order.user.nome }}
         </td>
         <td class="text-right">
             {{orderTrigo.quantidade | number:0 }}
         </td>
         <td class="text-right">
-            {{orderTrigo.valor_pedido | currency:"R$ " }}
+            {{ (orderTrigo.valor_unitario * orderTrigo.quantidade) | currency:"R$ " }}
         </td>
     </tr>
     <tr>

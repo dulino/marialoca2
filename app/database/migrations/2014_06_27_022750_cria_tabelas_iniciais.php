@@ -30,13 +30,22 @@ class CriaTabelasIniciais extends Migration {
             $table->date('dataPedido');
 			$table->integer('user_id')->unsigned();
 			$table->integer('client_id')->unsigned();
-			$table->integer('product_id')->unsigned();
-			$table->integer('quantidade')->unsigned();
 			$table->decimal('valor_pedido', 8, 2);
-			$table->integer('status')->unsigned()->default('0');
             $table->timestamps();
 			$table->foreign('user_id')->references('id')->on('users');
 			$table->foreign('client_id')->references('id')->on('clients');
+        });
+
+        Schema::create('itemorder', function($table)
+        {
+            $table->increments('id');
+			$table->integer('order_id')->unsigned();
+			$table->integer('product_id')->unsigned();
+			$table->integer('quantidade')->unsigned();
+			$table->decimal('valor_unitario', 8, 2);
+			$table->integer('status')->unsigned()->default('0');
+            $table->timestamps();
+			$table->foreign('order_id')->references('id')->on('orders');
 			$table->foreign('product_id')->references('id')->on('products');
         });
 	}
@@ -48,6 +57,7 @@ class CriaTabelasIniciais extends Migration {
 	 */
 	public function down()
 	{
+        Schema::drop('itemorder');
         Schema::drop('orders');
         Schema::drop('products');
         Schema::drop('clients');

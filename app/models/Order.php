@@ -18,8 +18,8 @@ class Order extends Eloquent {
 		return $this->belongsTo('Client');
 	}
 
-	public function product()
+	public function items()
 	{
-		return $this->belongsTo('Product');
+		return $this->hasMany('ItemOrder');
 	}
 }
