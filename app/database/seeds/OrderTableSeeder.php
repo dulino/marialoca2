@@ -25,9 +25,9 @@ class OrderTableSeeder extends Seeder {
         ItemOrder::create(array('order_id' => '5', 'product_id' => '1','quantidade' => '01', 'valor_unitario' => '010', 'status' => '1'));
         ItemOrder::create(array('order_id' => '5', 'product_id' => '2','quantidade' => '01', 'valor_unitario' => '012', 'status' => '1'));
         
-        Order::create(array('id' => '6', 'dataPedido' => date('2014-06-06'),'user_id' => '3','client_id' => '04', 'valor_pedido' => '110'));
-        ItemOrder::create(array('order_id' => '6', 'product_id' => '1','quantidade' => '05', 'valor_unitario' => '010', 'status' => '1'));
-        ItemOrder::create(array('order_id' => '6', 'product_id' => '2','quantidade' => '05', 'valor_unitario' => '012', 'status' => '1'));
+        Order::create(array('id' => '6', 'dataPedido' => date('2014-06-06'),'user_id' => '3','client_id' => '06', 'valor_pedido' => '110'));
+        ItemOrder::create(array('order_id' => '6', 'product_id' => '1','quantidade' => '04', 'valor_unitario' => '010', 'status' => '1'));
+        ItemOrder::create(array('order_id' => '6', 'product_id' => '2','quantidade' => '04', 'valor_unitario' => '012', 'status' => '1'));
 
         Order::create(array('id' => '7', 'dataPedido' => date('2014-06-07'),'user_id' => '1','client_id' => '07', 'valor_pedido' => '66'));
         ItemOrder::create(array('order_id' => '7', 'product_id' => '1','quantidade' => '03', 'valor_unitario' => '010', 'status' => '1'));
@@ -91,5 +91,15 @@ class OrderTableSeeder extends Seeder {
         Order::create(array('id' => '23', 'dataPedido' => date('2014-06-23'),'user_id' => '3','client_id' => '22', 'valor_pedido' => '66'));
         ItemOrder::create(array('order_id' => '23', 'product_id' => '1','quantidade' => '03', 'valor_unitario' => '010', 'status' => '0'));
         ItemOrder::create(array('order_id' => '23', 'product_id' => '2','quantidade' => '03', 'valor_unitario' => '012', 'status' => '0'));
+
+        Order::create(array('id' => '24', 'dataPedido' => date('2014-06-24'),'user_id' => '4','client_id' => '23', 'valor_pedido' => '44'));
+        ItemOrder::create(array('order_id' => '24', 'product_id' => '1','quantidade' => '02', 'valor_unitario' => '010', 'status' => '0'));
+        ItemOrder::create(array('order_id' => '24', 'product_id' => '2','quantidade' => '02', 'valor_unitario' => '012', 'status' => '0'));
+
+        Order::create(array('id' => '25', 'dataPedido' => date('2014-06-25'),'user_id' => '3','client_id' => '3', 'valor_pedido' => '48'));
+        ItemOrder::create(array('order_id' => '25', 'product_id' => '2','quantidade' => '04', 'valor_unitario' => '012', 'status' => '1'));
+
+        Order::create(array('id' => '26', 'dataPedido' => date('2014-06-30'),'user_id' => '2','client_id' => '24', 'valor_pedido' => '36'));
+        ItemOrder::create(array('order_id' => '26', 'product_id' => '2','quantidade' => '03', 'valor_unitario' => '012', 'status' => '0'));
     }
 }

@@ -17,7 +17,7 @@ class ClientTableSeeder extends Seeder {
         Client::create(array('id' => '11','nome' => 'Cláudio R.'));
         Client::create(array('id' => '12','nome' => 'Mano'));
         Client::create(array('id' => '13','nome' => 'Alexandre'));
-        Client::create(array('id' => '14','nome' => 'Elma '));
+        Client::create(array('id' => '14','nome' => 'Elma'));
         Client::create(array('id' => '15','nome' => 'POA Poker'));
         Client::create(array('id' => '16','nome' => 'Vi'));
         Client::create(array('id' => '17','nome' => 'Renato'));
@@ -26,5 +26,7 @@ class ClientTableSeeder extends Seeder {
         Client::create(array('id' => '20','nome' => 'Andressa Tabeliao'));
         Client::create(array('id' => '21','nome' => 'Tatiane Morais'));
         Client::create(array('id' => '22','nome' => 'Jussara'));
+        Client::create(array('id' => '23','nome' => 'Fabiano Medeiros'));
+        Client::create(array('id' => '24','nome' => 'Eliane'));
     }
 }
