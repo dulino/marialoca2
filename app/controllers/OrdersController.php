@@ -24,4 +24,27 @@ class OrdersController extends BaseController
 							->get();
         return Response::json(['ordersOriginal' => $ordersOriginal->toArray(), 'ordersTrigo' => $ordersTrigo->toArray()]);
     }
+
+
+	public function deletaItemPedido($id)
+	{
+		$itemPedido = ItemOrder::find($id);
+
+		if(!$itemPedido)
+			return false;
+
+		$itemPedido->delete();
+	}
+
+	public function alteraStatusItemPedido($id, $status)
+	{
+		$itemPedido = ItemOrder::find($id);
+
+		if(!$itemPedido)
+			return false;
+
+		$itemPedido->status = $status;
+		$itemPedido->save();
+	}
+
 }

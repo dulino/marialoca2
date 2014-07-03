@@ -1,4 +1,4 @@
-angular.module("myApp",['ngRoute', 'ngResource','ngSanitize'])
+angular.module("myApp",['ngRoute', 'ngResource','ngSanitize', 'ui.bootstrap', 'xeditable'])
     .config(['$routeProvider',function($routeProvider){
         $routeProvider.when('/',{templateUrl:'partials/login.html', controller: 'loginController'})
         $routeProvider.when('/order',{templateUrl:'partials/orders.html', controller: 'orderController'})
@@ -28,4 +28,8 @@ angular.module("myApp",['ngRoute', 'ngResource','ngSanitize'])
         $httpProvider.responseInterceptors.push(interceptor)
     }).run(function($http,CSRF_TOKEN){
         $http.defaults.headers.common['csrf_token'] = CSRF_TOKEN;
+    }).run(function(editableOptions, editableThemes) {
+        editableThemes.bs3.inputClass = 'input-sm';
+        editableThemes.bs3.buttonsClass = 'btn-sm';
+        editableOptions.theme = 'bs3';
     })

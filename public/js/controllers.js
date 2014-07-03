@@ -65,5 +65,21 @@ angular.module('myApp')
                 })
                 return total;
             }
+            $scope.clearOrder = function(order) {
+                Orders.deletaItemPedido(order.id).success(function() {
+                    $scope.ordersOriginal.splice($scope.ordersOriginal.indexOf(order),1);
+                });
+            }
+            $scope.alteraStatus = function(order) {
+                if (order.status == 1) {
+                    Orders.alteraStatusItemPedido(order.id, 0).success(function() {
+                        $scope.ordersOriginal[$scope.ordersOriginal.indexOf(order)].status = 0;
+                    });
+                } else {
+                    Orders.alteraStatusItemPedido(order.id, 1).success(function() {
+                        $scope.ordersOriginal[$scope.ordersOriginal.indexOf(order)].status = 1;
+                    });
+                }
+            }
 			});
     })
