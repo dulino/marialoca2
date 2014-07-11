@@ -33,7 +33,17 @@ class OrdersController extends BaseController
 		if(!$itemPedido)
 			return false;
 
+		$order_id = $itemPedido->order_id;
 		$itemPedido->delete();
+
+		$total = ItemOrder::where('order_id', '=', $order_id)->count();
+
+		if ($total == 0) {
+			$pedido = Order::find($order_id);
+			$pedido->delete();
+		}
+
+
 	}
 
 	public function alteraStatusItemPedido($id, $status)
