@@ -1,22 +1,28 @@
 angular.module('myApp')
-    .controller('loginController',function($scope,$sanitize,$location,Authenticate,Flash){
+.directive('barraMenus', function() {
+        return {
+            restrict: "E",
+            templateUrl: "partials/menus.html",
+            controller: function($scope,$sanitize,$location,Authenticate,Flash){
 
         $scope.login = function(){
-			Authenticate.save($scope.loginData)
-				.success(function(data) {
-					$location.path('/order')
-					Flash.clear()
-					sessionStorage.authenticated = true;
-				});
+            Authenticate.save($scope.loginData)
+                .success(function(data) {
+                    $location.path('/order')
+                    Flash.clear()
+                    sessionStorage.authenticated = true;
+                });
         }
         $scope.logout = function (){
-			Authenticate.logout($scope.loginData)
-				.success(function(response) {
-	                delete sessionStorage.authenticated
-    	            Flash.show(response.flash)
-        	        $location.path('/')
-				});
+            Authenticate.logout($scope.loginData)
+                .success(function(response) {
+                    delete sessionStorage.authenticated
+                    Flash.show(response.flash)
+                    $location.path('/')
+                });
         }
+    }
+        };
     })
     .controller('orderController',function($scope,$location,$routeParams,Authenticate,Orders,Flash){
         if (!sessionStorage.authenticated){
