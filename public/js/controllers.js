@@ -1,18 +1,10 @@
 angular.module('myApp')
-.directive('barraMenus', function() {
+    .directive('barraMenus', function() {
         return {
             restrict: "E",
             templateUrl: "partials/menus.html",
             controller: function($scope,$sanitize,$location,Authenticate,Flash){
 
-        $scope.login = function(){
-            Authenticate.save($scope.loginData)
-                .success(function(data) {
-                    $location.path('/order')
-                    Flash.clear()
-                    sessionStorage.authenticated = true;
-                });
-        }
         $scope.logout = function (){
             Authenticate.logout($scope.loginData)
                 .success(function(response) {
@@ -23,6 +15,17 @@ angular.module('myApp')
         }
     }
         };
+    })
+    .controller('loginController',function($scope,$sanitize,$location,Authenticate,Flash){
+
+        $scope.login = function(){
+			Authenticate.save($scope.loginData)
+				.success(function(data) {
+					$location.path('/order')
+					Flash.clear()
+					sessionStorage.authenticated = true;
+				});
+        }
     })
     .controller('orderController',function($scope,$location,$routeParams,Authenticate,Orders,Flash){
         if (!sessionStorage.authenticated){
