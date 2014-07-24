@@ -7,7 +7,7 @@ body {
 </style>
 <div class="container">
 <barra-menus></barra-menus>
-<h1 class="titulo-pagina">Pedidos</h1>
+<h2 class="titulo-pagina">Pedidos</h2>
 <h4>
 <select ng-model="search.status">
     <option value="0" default>Aguardando</option>
@@ -55,7 +55,7 @@ body {
             {{ orderOriginal.order.user.nome }}
         </td>
         <td class="text-right">
-            {{orderOriginal.quantidade | number:0 }}
+            <span onbeforesave="updateQuantidade(orderOriginal, $data)">{{orderOriginal.quantidade | number:0 }}</span>
         </td>
         <td class="text-right">
             {{ (orderOriginal.valor_unitario * orderOriginal.quantidade) | currency:"R$ " }}

@@ -2,9 +2,10 @@ angular.module("myApp",['ngRoute', 'ngResource','ngSanitize', 'ui.bootstrap', 'x
     .config(['$routeProvider',function($routeProvider){
         $routeProvider.when('/',{templateUrl:'partials/login.html', controller: 'loginController'})
         $routeProvider.when('/order',{templateUrl:'partials/orders.html', controller: 'orderController'})
+        $routeProvider.when('/client',{templateUrl:'partials/clients.html', controller: 'clientController'})
+        $routeProvider.when('/user',{templateUrl:'partials/users.html', controller: 'userController'})
         $routeProvider.otherwise({redirectTo :'/'})
     }]).config(function($httpProvider){
-
 
         var interceptor = function($rootScope,$location,$q,Flash){
 

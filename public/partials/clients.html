@@ -1,0 +1,38 @@
+  <style>
+  body {  
+    background: ##3a2006;
+    background-image: url("/images/bg_body1.jpg"), url("/images/bg_body2.jpg");
+    background-repeat: repeat-x, repeat;
+  }
+  </style>
+  <div class="container">
+    <barra-menus></barra-menus>
+    <h2 class="titulo-pagina">Clientes</h2>
+    <div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-3 form-group">
+    <div class="input-group input-group-sm">
+      <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+      <input type="text" class="form-control" ng-model="searchNome.nome" placeholder="Pesquisa pelo nome ...">
+    </div>    
+  </div>
+</div>
+<div class="row cardContainer">
+      <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="cliente in clientes | filter:searchNome">
+        <div class="card card-animation">
+          <button class="btn close cardClose" title="Excluir Cliente">&times;</button>
+          <div class="cardHeader"><a href="#/customeredit/{{cliente.id}}" class="white">{{cliente.nome}}</a></div>
+          <div class="cardBody">
+            <div class="clearfix">
+              <div class="pull-left">
+                <a href="#/customeredit/{{cliente.id}}" class="white"><img data-ng-src="/images/{{cliente.sexo}}.png" class="cardImage" /></a>
+              </div>
+              <div class="pull-left cardBodyRight">
+                <div><a href="#/customerorders/{{cliente.id}}" class="btn-link">{{cliente.orders.length}} Pedidos</a></div>
+                <div class="cardEmail">{{cliente.email}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

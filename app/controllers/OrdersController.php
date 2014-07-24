@@ -57,4 +57,14 @@ class OrdersController extends BaseController
 		$itemPedido->save();
 	}
 
+	public function alteraQuantidadeItemPedido($id, $qtd)
+	{
+		$itemPedido = ItemOrder::find($id);
+
+		if(!$itemPedido)
+			return false;
+
+		$itemPedido->quantidade = $qtd;
+		$itemPedido->save();
+	}
 }

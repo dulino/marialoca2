@@ -16,6 +16,8 @@ class CriaTabelasIniciais extends Migration {
 		{
 			$table->increments('id');
 			$table->string('nome', 128)->unique();
+			$table->string('email', 128)->unique()->nullable();
+			$table->string('sexo', 1);
 		});
 
 		Schema::create('products', function($table)

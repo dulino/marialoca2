@@ -105,5 +105,34 @@ angular.module('myApp')
                     });
                 }
             }
+            $scope.updateQuantidade = function(itemOrder, data) {
+                Orders.alteraQuantidadeItemPedido(itemOrder, data)
+                .success(function() {
+                    console.log('sucesso');
+                })
+                .error(function() {
+                    console.log('erro');
+                });
+            }
 			});
+    })
+    .controller('clientController',function($scope,$location,$routeParams,Authenticate,Clients,Flash){
+        if (!sessionStorage.authenticated){
+            $location.path('/')
+            Flash.show("Você precisa estar autenticado para acessar essa página")
+        }
+        Clients.home()
+            .success(function(response) {
+            $scope.clientes = response.clientes;
+            });
+    })
+    .controller('userController',function($scope,$location,$routeParams,Authenticate,Users,Flash){
+        if (!sessionStorage.authenticated){
+            $location.path('/')
+            Flash.show("Você precisa estar autenticado para acessar essa página")
+        }
+        Users.home()
+            .success(function(response) {
+            $scope.usuarios = response.usuarios;
+            });
     })

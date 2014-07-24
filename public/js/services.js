@@ -35,6 +35,27 @@ angular.module('myApp')
                     url: '/orders/'+id+'/alteraStatusItemPedido/'+status,
                     headers: { 'Content-Type' : 'application/x-www-form-urlencoded' }
                 });
+            },
+            alteraQuantidadeItemPedido : function(itemOrder, data) {
+                return $http({
+                    method: 'GET',
+                    url: '/orders/'+itemOrder.id+'/alteraQuantidadeItemPedido/'+data,
+                    headers: { 'Content-Type' : 'application/x-www-form-urlencoded' }
+                });
+            }
+        }
+    })
+    .factory('Clients', function($http){
+        return { 
+            home : function() { 
+                return $http({method: 'GET',url: '/clients/home'});  
+            }
+        }
+    })
+    .factory('Users', function($http){
+        return { 
+            home : function() { 
+                return $http({method: 'GET',url: '/users/home'});  
             }
         }
     })
