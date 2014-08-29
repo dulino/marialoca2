@@ -1,0 +1,44 @@
+<style>
+body {  
+    background: ##3a2006;
+    background-image: url("/images/bg_body1.jpg"), url("/images/bg_body2.jpg");
+    background-repeat: repeat-x, repeat;
+}
+</style>
+<div class="container">
+<barra-menus></barra-menus>
+<h2 class="titulo-pagina">Pedidos de {{cliente.nome}}</h2>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6">
+  
+
+          <div class="panel panel-default">
+            <table class="table table-hover table-condensed">
+    <thead>
+    <tr>
+        <th>Data Pedido</th>
+        <th>Vendedor</th>
+        <th class="text-right">Valor Pedido</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="orderOriginal in cliente.orders">
+        <td>
+            {{ orderOriginal.dataPedido  | date:"dd/MM/yyyy" }}
+        </td>
+        <td>
+            {{ orderOriginal.user.nome }}
+        </td>
+        <td class="text-right">
+            {{ orderOriginal.valor_pedido | currency:"R$ " }}
+        </td>
+    </tr>
+    </tbody>
+</table>
+          </div>
+    </div>      
+      
+</div>
+
+</div>

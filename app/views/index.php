@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Maria Loca</title>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
     <link media="all" type="text/css" rel="stylesheet" href="css/xeditable.css">
     <link href="css/app.css" rel="stylesheet">
 </head>
@@ -25,8 +25,8 @@
 
 
 <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-<script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-<script src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
+<script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="js/ui-bootstrap-tpls-0.11.0.min.js"></script>
 
 </body>
 

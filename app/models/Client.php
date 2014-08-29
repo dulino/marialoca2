@@ -14,4 +14,9 @@ class Client extends Eloquent {
 	{
 		return $this->hasMany('Order');
 	}
+
+    public function items()
+    {
+        return $this->hasManyThrough('ItemOrder', 'Order', 'client_id', 'order_id');
+    }
 }

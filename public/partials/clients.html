@@ -19,7 +19,8 @@
 <div class="row cardContainer">
       <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="cliente in clientes | filter:searchNome">
         <div class="card card-animation">
-          <button class="btn close cardClose" title="Excluir Cliente">&times;</button>
+          <button class="btn close cardClose" tooltip-append-to-body="true" tooltip-placement="top" tooltip="Excluir Cliente" >&times;</button>
+          <button class="btn close cardClose" tooltip-append-to-body="true" tooltip-placement="top" tooltip="Novo Pedido" >&plus;</button>
           <div class="cardHeader"><a href="#/customeredit/{{cliente.id}}" class="white">{{cliente.nome}}</a></div>
           <div class="cardBody">
             <div class="clearfix">
@@ -27,7 +28,8 @@
                 <a href="#/customeredit/{{cliente.id}}" class="white"><img data-ng-src="/images/{{cliente.sexo}}.png" class="cardImage" /></a>
               </div>
               <div class="pull-left cardBodyRight">
-                <div><a href="#/customerorders/{{cliente.id}}" class="btn-link">{{cliente.orders.length}} Pedidos</a></div>
+                <div><a href="#/order/client/{{cliente.id}}" class="btn-link">{{cliente.pedidos}} Pedidos</a></div>
+                <div class="cardTotal">{{cliente.valorTotal | currency:"R$ "}}</div>
                 <div class="cardEmail">{{cliente.email}}</div>
               </div>
             </div>

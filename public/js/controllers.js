@@ -116,14 +116,25 @@ angular.module('myApp')
             }
 			});
     })
-    .controller('clientController',function($scope,$location,$routeParams,Authenticate,Clients,Flash){
+    .controller('clientController',function($scope,$location,$routeParams,$modal, $log,Authenticate,Clients,Flash){
         if (!sessionStorage.authenticated){
             $location.path('/')
             Flash.show("Você precisa estar autenticado para acessar essa página")
         }
         Clients.home()
             .success(function(response) {
-            $scope.clientes = response.clientes;
+                $scope.clientes = response.clientes;
+                $scope.valorTotal = 10;
+            });
+    })
+    .controller('clientOrdersController',function($scope,$location,$routeParams,Authenticate,Flash, ClientOrders){
+        if (!sessionStorage.authenticated){
+            $location.path('/')
+            Flash.show("Você precisa estar autenticado para acessar essa página")
+        }
+        ClientOrders.home($routeParams.id)
+            .success(function(response) {
+            $scope.cliente        = response.cliente;
             });
     })
     .controller('userController',function($scope,$location,$routeParams,Authenticate,Users,Flash){

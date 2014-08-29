@@ -78,6 +78,10 @@
     margin-top:10px;
 }
 
+.cardTotal {
+    font-weight:bold;
+}
+
 .cardEmail {
     font-size:7pt;
 }

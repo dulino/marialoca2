@@ -52,6 +52,13 @@ angular.module('myApp')
             }
         }
     })
+    .factory('ClientOrders', function($http){
+        return { 
+            home : function(id) { 
+                return $http({method: 'GET',url: '/orders/client/'+id});  
+            }
+        }
+    })
     .factory('Users', function($http){
         return { 
             home : function() { 
