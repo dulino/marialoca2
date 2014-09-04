@@ -67,4 +67,5 @@ class OrdersController extends BaseController
 		$itemPedido->quantidade = $qtd;
 		$itemPedido->save();
 	}
+
 }

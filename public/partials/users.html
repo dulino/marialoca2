@@ -27,7 +27,8 @@
                 <a href="#/customeredit/{{usuario.id}}" class="white"><img data-ng-src="/images/user_{{usuario.id}}.jpg" class="cardImage" /></a>
               </div>
               <div class="pull-left cardBodyRight">
-                <div><a href="#/customerorders/{{usuario.id}}" class="btn-link">{{usuario.orders.length}} Pedidos</a></div>
+                <div><a href="#/order/user/{{usuario.id}}" class="btn-link">{{usuario.pedidos}} Pedidos</a></div>
+                <div class="cardTotal">{{usuario.valorTotal | currency:"R$ "}}</div>
                 <div class="cardEmail">{{usuario.email}}</div>
               </div>
             </div>

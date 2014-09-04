@@ -16,7 +16,6 @@ class ClientsController extends BaseController
             ->groupBy('clients.id', 'clients.nome', 'clients.email', 'clients.sexo')
             ->get(array('clients.id, clients.nome, clients.email, clients.sexo, pedidos, valorTotal'));
         
-
         return Response::json(['clientes' => $clientes]);
     }
 

@@ -23,7 +23,8 @@ Route::get('orders/home', 'OrdersController@home');
 Route::get('orders/{id}/deletaItemPedido', 'OrdersController@deletaItemPedido');
 Route::get('orders/{id}/alteraStatusItemPedido/{status}', 'OrdersController@alteraStatusItemPedido');
 Route::get('orders/{id}/alteraQuantidadeItemPedido/{qtd}', 'OrdersController@alteraQuantidadeItemPedido');
-Route::get('orders/client/{id}', 'ClientOrdersController@home');
+Route::get('orders/client/{id}', 'ClientOrdersController@pedidosPorCliente');
+Route::get('orders/user/{id}', 'UsersController@pedidosPorUsuario');
 
 Route::get('clients/home', 'ClientsController@home');
 

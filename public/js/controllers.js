@@ -132,9 +132,19 @@ angular.module('myApp')
             $location.path('/')
             Flash.show("Você precisa estar autenticado para acessar essa página")
         }
-        ClientOrders.home($routeParams.id)
+        ClientOrders.pedidosPorCliente($routeParams.id)
             .success(function(response) {
             $scope.cliente        = response.cliente;
+            });
+    })
+    .controller('userOrdersController',function($scope,$location,$routeParams,Authenticate,Flash, Users){
+        if (!sessionStorage.authenticated){
+            $location.path('/')
+            Flash.show("Você precisa estar autenticado para acessar essa página")
+        }
+        Users.pedidosPorUsuario($routeParams.id)
+            .success(function(response) {
+            $scope.usuario        = response.usuario;
             });
     })
     .controller('userController',function($scope,$location,$routeParams,Authenticate,Users,Flash){

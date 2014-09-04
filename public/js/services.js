@@ -54,7 +54,7 @@ angular.module('myApp')
     })
     .factory('ClientOrders', function($http){
         return { 
-            home : function(id) { 
+            pedidosPorCliente : function(id) { 
                 return $http({method: 'GET',url: '/orders/client/'+id});  
             }
         }
@@ -63,6 +63,9 @@ angular.module('myApp')
         return { 
             home : function() { 
                 return $http({method: 'GET',url: '/users/home'});  
+            },
+            pedidosPorUsuario : function(id) { 
+                return $http({method: 'GET',url: '/orders/user/'+id});  
             }
         }
     })

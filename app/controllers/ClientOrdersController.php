@@ -8,7 +8,7 @@ class ClientOrdersController extends BaseController
         $this->beforeFilter('serviceCSRF');
     }
 
-	public function home($id)
+	public function pedidosPorCliente($id)
 	{
         $cliente = Client::with('orders')
                            ->with('orders.items')
